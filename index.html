@@ -1,141 +1,205 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolos da Tia Selma - O Sabor do Carinho</title>
+    <style>
+        /* PALETA DE CORES E ESTILO GERAL */
+        :root {
+            --creme: #FFFDF5;
+            --marrom: #5D4037;
+            --rosa-seco: #D4A373;
+            --whatsapp: #25D366;
+            --texto: #333;
+        }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--creme);
+            color: var(--texto);
+            line-height: 1.6;
+        }
 
-<title>Bolos da Tia Selma | Bolos Caseiros em Belém</title>
+        /* CABEÇALHO */
+        header {
+            background-color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-<meta name="description" content="Bolos caseiros deliciosos em Belém. Peça pelo WhatsApp na Bolos da Tia Selma.">
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--marrom);
+        }
 
-<style>
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--marrom);
+            font-weight: 500;
+        }
 
-body{
-font-family: Arial;
-margin:0;
-background-image:url("https://images.unsplash.com/photo-1578985545062-69928b1d9587");
-background-size:cover;
-background-attachment:fixed;
-}
+        /* SEÇÃO HERO */
+        .hero {
+            text-align: center;
+            padding: 80px 10%;
+            background: linear-gradient(rgba(255,253,245,0.8), rgba(255,253,245,0.8)), 
+                        url('https://via.placeholder.com/1200x600?text=Fundo+Texturizado');
+            background-size: cover;
+        }
 
-header{
-background:#e88fa1;
-color:white;
-text-align:center;
-padding:30px;
-}
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--marrom);
+            margin-bottom: 10px;
+        }
 
-header img{
-width:120px;
-}
+        .btn-cardapio {
+            background-color: var(--rosa-seco);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+        }
 
-.container{
-background:white;
-padding:30px;
-margin:40px;
-border-radius:10px;
-}
+        .btn-cardapio:hover {
+            background-color: var(--marrom);
+        }
 
-h1,h2{
-text-align:center;
-}
+        /* GALERIA DE BOLOS */
+        .cardapio {
+            padding: 50px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
 
-.galeria{
-display:flex;
-flex-wrap:wrap;
-gap:20px;
-justify-content:center;
-}
+        .bolo-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
 
-.galeria img{
-width:250px;
-border-radius:10px;
-}
+        .bolo-card:hover {
+            transform: translateY(-5px);
+        }
 
-.botao{
-display:block;
-width:250px;
-margin:30px auto;
-background:#25D366;
-color:white;
-text-align:center;
-padding:15px;
-font-size:18px;
-border-radius:8px;
-text-decoration:none;
-}
+        .bolo-img {
+            width: 100%;
+            height: 250px;
+            background-color: #eee;
+            object-fit: cover; /* ISSO GARANTE QUE SUA FOTO NÃO DISTORÇA */
+        }
 
-footer{
-background:#333;
-color:white;
-text-align:center;
-padding:20px;
-}
+        .bolo-info {
+            padding: 20px;
+            text-align: center;
+        }
 
-</style>
+        .preco {
+            color: var(--rosa-seco);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
 
+        .btn-comprar {
+            display: block;
+            background-color: var(--whatsapp);
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background-color: var(--marrom);
+            color: white;
+            text-align: center;
+            padding: 40px 5%;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            nav { display: none; } /* Simplificação para mobile */
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
+    <header>
+        <div class="logo">🍰 Bolos da Tia Selma</div>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#cardapio">Cardápio</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
 
-<img src="logo.jpg">
+    <section class="hero" id="inicio">
+        <h1>O sabor do carinho em cada fatia</h1>
+        <p>Bolos caseiros feitos com ingredientes selecionados e muito amor.</p>
+        <br>
+        <a href="#cardapio" class="btn-cardapio">Ver Cardápio de Hoje</a>
+    </section>
 
-<h1>Bolos da Tia Selma</h1>
+    <div class="cardapio" id="cardapio">
+        <div class="bolo-card">
+            <img src="foto1.jpg" alt="Bolo de Chocolate" class="bolo-img" onerror="this.src='https://via.placeholder.com/300x250?text=Sua+Foto+Aqui'">
+            <div class="bolo-info">
+                <h3>Vulcão de Chocolate</h3>
+                <p>Massa fofinha com cobertura cremosa de brigadeiro gourmet.</p>
+                <p class="preco">R$ 45,00</p>
+                <a href="https://wa.me/5591999999999?text=Olá!+Gostaria+de+encomendar+o+Bolo+Vulcão+de+Chocolate" class="btn-comprar">Pedir no WhatsApp</a>
+            </div>
+        </div>
 
-<p>Bolos caseiros feitos com amor em Belém</p>
+        <div class="bolo-card">
+            <img src="foto2.jpg" alt="Bolo de Cenoura" class="bolo-img" onerror="this.src='https://via.placeholder.com/300x250?text=Sua+Foto+Aqui'">
+            <div class="bolo-info">
+                <h3>Cenoura com Brigadeiro</h3>
+                <p>O clássico favorito, feito com cenouras frescas e muito chocolate.</p>
+                <p class="preco">R$ 35,00</p>
+                <a href="https://wa.me/5591999999999?text=Olá!+Gostaria+de+encomendar+o+Bolo+de+Cenoura" class="btn-comprar">Pedir no WhatsApp</a>
+            </div>
+        </div>
 
-</header>
+        <div class="bolo-card">
+            <img src="foto3.jpg" alt="Bolo de Milho" class="bolo-img" onerror="this.src='https://via.placeholder.com/300x250?text=Sua+Foto+Aqui'">
+            <div class="bolo-info">
+                <h3>Milho Cremoso</h3>
+                <p>Receita tradicional com gostinho de café da manhã na fazenda.</p>
+                <p class="preco">R$ 30,00</p>
+                <a href="https://wa.me/5591999999999?text=Olá!+Gostaria+de+encomendar+o+Bolo+de+Milho" class="btn-comprar">Pedir no WhatsApp</a>
+            </div>
+        </div>
+    </div>
 
-<div class="container">
-
-<h2>Nossos Bolos</h2>
-
-<div class="galeria">
-
-<img src="bolo pudim.jpg">
-
-<img src="chocolate com cenoura.png">
-
-<img src="milho.jpg">
-
-<img src="salgado.jpg">
-
-</div>
-
-<a class="botao" href="https://wa.me/5591999999999">
-
-Fazer pedido no WhatsApp
-
-</a>
-
-</div>
-
-<div class="container">
-
-<h2>Onde Estamos</h2>
-
-<iframe
-src="https://www.google.com/maps?q=belem+para&output=embed"
-width="100%"
-height="300"
-style="border:0;">
-</iframe>
-
-</div>
-
-<footer>
-
-<p>📍 Belém - Pará</p>
-
-<p>📞 Telefone: (91) 99999-9999</p>
-
-<p>© Bolos da Tia Selma</p>
-
-</footer>
+    <footer id="contato">
+        <p><strong>Bolos da Tia Selma</strong></p>
+        <p>Icoaraci - Belém / PA</p>
+        <p>Entregas de Terça a Domingo</p>
+        <p>© 2026 - Todos os direitos reservados</p>
+    </footer>
 
 </body>
 </html>
