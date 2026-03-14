@@ -3,160 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bolos da Tia Selma - Icoaraci</title>
+    <title>Bolos da Tia Selma - O Sabor de Icoaraci</title>
     <style>
         :root {
             --laranja: #E67E22;
             --marrom: #5D4037;
             --creme: #FFFDF5;
             --whatsapp: #25D366;
+            --rosa-seco: #D4A373;
         }
 
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Georgia', serif; /* Fonte mais clássica */
             margin: 0;
             background-color: var(--creme);
             color: #333;
+            line-height: 1.8;
+            /* FUNDO AMBIENTE: Imagem texturizada e acolhedora */
+            background-image: url('cardapio.jpg');
+            background-blend-mode: overlay;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
         }
 
         header {
-            background: white;
-            padding: 15px 5%;
+            background-color: rgba(255, 253, 245, 0.9);
+            padding: 30px 5%;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
-        .hero {
-            background: linear-gradient(rgba(255,253,245,0.8), rgba(255,253,245,0.8)), url('cardapio.jpg');
-            background-size: cover;
-            padding: 60px 10%;
-            text-align: center;
+        /* LOGOMARCA MAIOR */
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .hero h1 { color: var(--marrom); font-size: 2.5rem; margin-bottom: 10px; }
+        .logo-container img {
+            width: 150px; /* Logo maior */
+            margin-bottom: 10px;
+        }
 
-        .container { padding: 40px 5%; }
+        .logo-text {
+            color: var(--marrom);
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin: 0;
+        }
 
+        .hero {
+            padding: 100px 10%;
+            text-align: center;
+            background: linear-gradient(rgba(255, 253, 245, 0.9), rgba(255, 253, 245, 0.9));
+        }
+
+        .hero h1 { color: var(--marrom); font-size: 3.5rem; margin-bottom: 10px; font-style: italic; }
+        .hero p { font-size: 1.2rem; color: #555; }
+
+        .container { padding: 80px 5%; }
+
+        /* NOVA SEÇÃO: NOSSA TRADIÇÃO */
+        .tradicao {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            background: white;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 80px;
+        }
+
+        .tradicao img {
+            width: 100%;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+
+        .tradicao-text h2 { color: var(--marrom); font-size: 2.5rem; margin-top: 0; }
+        .tradicao-text p { font-size: 1.1rem; color: #666; }
+
+        /* GALERIA DE PRODUTOS GOURMET */
         .grid-cardapio {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
         }
 
         .card {
             background: white;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: 0.4s;
         }
 
-        .card:hover { transform: translateY(-5px); }
+        .card:hover { transform: translateY(-10px); }
 
         .card img {
             width: 100%;
-            height: 300px;
+            height: 350px;
             object-fit: cover;
         }
 
-        .card-info { padding: 20px; text-align: center; }
-
-        .card-info h3 { color: var(--marrom); margin: 10px 0; }
+        .card-info { padding: 30px; text-align: center; }
+        .card-info h3 { color: var(--marrom); margin: 0 0 10px 0; font-size: 1.8rem; }
+        .card-info p { color: #888; font-size: 1rem; margin-bottom: 20px; }
 
         .preco {
-            font-size: 1.4rem;
-            color: var(--laranja);
+            font-size: 1.8rem;
+            color: var(--rosa-seco);
             font-weight: bold;
-            margin: 10px 0;
+            margin: 15px 0;
+            font-family: 'Segoe UI', sans-serif;
         }
 
         .btn-whats {
             display: block;
             background-color: var(--whatsapp);
             color: white;
-            padding: 12px;
+            padding: 15px;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 40px;
             font-weight: bold;
-            margin-top: 15px;
+            font-size: 1.1rem;
+            transition: 0.3s;
         }
 
-        footer {
-            background: var(--marrom);
-            color: white;
+        .btn-whats:hover { background-color: #1ea952; }
+
+        /* MAPA DE LOCALIZAÇÃO */
+        .mapa-secao {
             text-align: center;
-            padding: 30px;
-            margin-top: 40px;
+            margin-top: 80px;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        .info-local { margin-top: 10px; font-size: 0.9rem; opacity: 0.8; }
+        .mapa-secao h2 { color: var(--marrom); margin-bottom: 30px; }
+        .mapa-container { height: 300px; border-radius: 15px; overflow: hidden; }
+
+        /* RODAPÉ MAIOR */
+        footer {
+            background-color: #3e2723; /* Marrom escuro */
+            color: rgba(255, 255, 255, 0.8);
+            padding: 80px 10%;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        .footer-col h3 { color: white; margin-top: 0; font-size: 1.4rem; }
+        .footer-col p { margin: 10px 0; }
+        .social-icons a { color: white; margin-right: 15px; text-decoration: none; font-size: 1.3rem; }
+
+        .copyright {
+            grid-column: 1 / -1;
+            text-align: center;
+            border-top: 1px rgba(255,255,255,0.1) solid;
+            margin-top: 40px;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .tradicao { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h2 style="color: var(--marrom); margin:0;">🍰 Bolos da Tia Selma</h2>
+        <div class="logo-container">
+            <img src="cardapio.jpg" style="clip-path: circle(50% at 50% 50%); height: 100px; width: auto; object-fit: contain;" alt="Logo Bolos da Tia Selma">
+            <h1 class="logo-text">Bolos da Tia Selma</h1>
+        </div>
     </header>
 
     <section class="hero">
-        <h1>Sabor caseiro que conquista!</h1>
-        <p>Deliciosos bolos feitos com carinho em Icoaraci.</p>
+        <h1>O Sabor do Carinho em cada Fatia</h1>
+        <p>A tradição de Icoaraci, feita sob encomenda e com sabor de infância.</p>
     </section>
 
     <div class="container">
+        
+        <div class="tradicao">
+            <img src="puder e o bopo.png" alt="Tia Selma na Cozinha">
+            <div class="tradicao-text">
+                <h2>Nossa Tradição</h2>
+                <p>Aqui na Tia Selma, cada bolo é mais que uma receita; é um pedaço da nossa história em Icoaraci. Usamos apenas ingredientes selecionados para garantir aquele sabor fofinho e cremoso que remete às melhores lembranças da infância.</p>
+                <p>Nossas receitas são tradicionais e feitas com todo o cuidado, exatamente como eram feitas antigamente. É essa dedicação que transforma cada fatia em uma verdadeira experiência de afeto.</p>
+            </div>
+        </div>
+
         <div class="grid-cardapio">
             
             <div class="card">
-                <img src="bolo pudim.jpg" alt="Bolo Pudim">
+                <img src="bolo pudim.jpg" alt="Bolo Pudim Premium">
                 <div class="card-info">
-                    <h3>Bolo Pudim Cremoso</h3>
-                    <p>A combinação perfeita de dois clássicos.</p>
+                    <h3>Bolo Pudim Premium</h3>
+                    <p>A combinação perfeita e cremosa de dois clássicos.</p>
                     <div class="preco">R$ 80,00</div>
-                    <a href="https://wa.me/5591989440356?text=Olá!+Gostaria+de+encomendar+o+Bolo+Pudim" class="btn-whats">Pedir no WhatsApp</a>
+                    <a href="https://wa.me/5591989440356?text=Olá!+Gostaria+de+encomendar+o+Bolo+Pudim+Premium" class="btn-whats">Pedir no WhatsApp</a>
                 </div>
             </div>
 
             <div class="card">
-                <img src="chocolat com cnoura.png" alt="Bolo de Cenoura">
+                <img src="chocolat com cnoura.png" alt="Bolo de Cenoura com Chocolate">
                 <div class="card-info">
                     <h3>Cenoura com Chocolate</h3>
-                    <p>Massa fofinha com cobertura irresistível.</p>
+                    <p>Massa fofinha com cobertura irresistível de brigadeiro.</p>
                     <div class="preco">R$ 80,00</div>
-                    <a href="https://wa.me/5591989440356?text=Olá!+Gostaria+de+encomendar+o+Bolo+de+Cenoura" class="btn-whats">Pedir no WhatsApp</a>
+                    <a href="https://wa.me/5591989440356?text=Olá!+Gostaria+de+encomendar+o+Bolo+de+Cenoura+com+Chocolate" class="btn-whats">Pedir no WhatsApp</a>
                 </div>
             </div>
 
             <div class="card">
-                <img src="milho.jpg" alt="Bolo de Milho">
+                <img src="milho.jpg" alt="Bolo de Milho Regional">
                 <div class="card-info">
-                    <h3>Bolo de Milho Cremoso</h3>
-                    <p>O verdadeiro sabor da fazenda na sua mesa.</p>
+                    <h3>Bolo de Milho Regional</h3>
+                    <p>O autêntico sabor da roça, cremoso e inconfundível.</p>
                     <div class="preco">R$ 80,00</div>
-                    <a href="https://wa.me/5591989440356?text=Olá!+Gostaria+de+encomendar+o+Bolo+de+Milho" class="btn-whats">Pedir no WhatsApp</a>
+                    <a href="https://wa.me/5591989440356?text=Olá!+Gostaria+de+encomendar+o+Bolo+de+Milho+Regional" class="btn-whats">Pedir no WhatsApp</a>
                 </div>
             </div>
 
             <div class="card">
-                <img src="salgado.jpg" alt="Bolo Salgado">
+                <img src="salgado.jpg" alt="Bolo Salgado Especial">
                 <div class="card-info">
                     <h3>Bolo Salgado Especial</h3>
-                    <p>Recheio generoso e massa temperada.</p>
+                    <p>Recheio generoso e massa temperada para um lanche perfeito.</p>
                     <div class="preco">R$ 80,00</div>
-                    <a href="https://wa.me/5591989440356?text=Olá!+Gostaria+de+encomendar+o+Bolo+Salgado" class="btn-whats">Pedir no WhatsApp</a>
+                    <a href="https://wa.me/5591989440356?text=Olá!+Gostaria+de+encomendar+o+Bolo+Salgado+Especial" class="btn-whats">Pedir no WhatsApp</a>
                 </div>
             </div>
 
         </div>
+
+        <div class="mapa-secao">
+            <h2>Nossa Localização em Icoaraci</h2>
+            <p>Bairro Ponta Grossa</p>
+            <div class="mapa-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15956.124619472648!2d-48.4891129!3d-1.2980598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a488e028f80459%3A0xc3f5b796446e105e!2sPonta%20Grossa%2C%20Belém%20-%20PA!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
     </div>
 
     <footer>
-        <p><strong>Bolos da Tia Selma</strong></p>
-        <p>📍 Bairro Ponta Grossa - Icoaraci / Belém</p>
-        <p class="info-local">Taxa de entrega: R$ 10,00 | Somente por encomenda</p>
-        <p style="margin-top: 20px;">📞 (91) 98944-0356</p>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Bolos da Tia Selma</h3>
+                <p>📍 Bairro Ponta Grossa</p>
+                <p>Icoaraci - Belém / PA</p>
+                <p>Sabor caseiro que conquista!</p>
+            </div>
+            <div class="footer-col">
+                <h3>Atendimento</h3>
+                <p>Entregas em Icoaraci</p>
+                <p>Taxa de entrega: R$ 10,00</p>
+                <p>Somente por encomenda</p>
+            </div>
+            <div class="footer-col">
+                <h3>Fale Conosco</h3>
+                <p>📞 (91) 98944-0356</p>
+                <p>📸 @BolosdaTiaSelmaIcoaraci</p>
+                <div class="social-icons">
+                    <a href="#" target="_blank">📲 WhatsApp</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2026 Bolos da Tia Selma - Todos os direitos reservados</p>
+            </div>
+        </div>
     </footer>
 
 </body>
