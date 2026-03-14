@@ -8,62 +8,48 @@
 <style>
 
 body{
-font-family: Arial, sans-serif;
+font-family: Arial;
 margin:0;
-background:#fff7f8;
+background:#fff5f7;
 color:#333;
+text-align:center;
 }
 
 header{
-background:#ffb6c1;
-padding:20px;
-text-align:center;
-}
-
-header h1{
-margin:0;
+background:#e79aa5;
+padding:25px;
 color:white;
-}
-
-.hero{
-text-align:center;
-padding:60px 20px;
-background:#ffe4e8;
-}
-
-.hero h2{
-font-size:32px;
-}
-
-.btn{
-display:inline-block;
-margin-top:20px;
-padding:15px 25px;
-background:#25D366;
-color:white;
-text-decoration:none;
-border-radius:8px;
+font-size:28px;
 font-weight:bold;
 }
 
-.section{
-padding:40px 20px;
-text-align:center;
+.hero{
+padding:60px 20px;
 }
 
-.cards{
+.botao{
+background:#25D366;
+color:white;
+padding:15px 25px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.galeria{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
 gap:20px;
+padding:40px;
 }
 
 .card{
 background:white;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-padding:20px;
-width:250px;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+width:260px;
+padding:15px;
 }
 
 .card img{
@@ -71,11 +57,17 @@ width:100%;
 border-radius:10px;
 }
 
+.preco{
+color:#e74c3c;
+font-size:20px;
+font-weight:bold;
+}
+
 footer{
 background:#333;
 color:white;
-text-align:center;
 padding:20px;
+margin-top:40px;
 }
 
 .whatsapp{
@@ -96,82 +88,68 @@ font-weight:bold;
 <body>
 
 <header>
-<h1>Bolos da Tia Selma</h1>
+Bolos da Tia Selma 🍰
 </header>
 
 <section class="hero">
+
 <h2>Bolos caseiros feitos com carinho em Belém</h2>
+
 <p>Sabores especiais para tornar qualquer momento mais doce.</p>
 
-<a class="btn" href="https://wa.me/5591989440356">
+<br>
+
+<a class="botao" href="https://wa.me/5591989440356?text=Olá! Gostaria de fazer um pedido de bolo">
 Fazer pedido no WhatsApp
 </a>
+
 </section>
 
-<section class="section">
 <h2>Nossos Bolos</h2>
 
-<div class="cards">
+<div class="galeria">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587">
-<h3>Bolo de Chocolate</h3>
-<p>Bolo fofinho com cobertura cremosa de chocolate.</p>
+<img src="bolo pudim.jpg">
+<h3>Bolo Pudim</h3>
+<p>Bolo macio com delicioso pudim.</p>
+<p class="preco">R$ 35</p>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729">
-<h3>Bolo de Cenoura</h3>
-<p>Clássico bolo de cenoura com calda de chocolate.</p>
+<img src="chocolate com cenoura.png">
+<h3>Bolo de Cenoura com Chocolate</h3>
+<p>Clássico bolo fofinho com cobertura cremosa.</p>
+<p class="preco">R$ 30</p>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62">
+<img src="milho.jpg">
 <h3>Bolo de Milho</h3>
-<p>Bolo tradicional macio e saboroso.</p>
+<p>Tradicional bolo de milho bem caseiro.</p>
+<p class="preco">R$ 28</p>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1618426703623-c1b335803e07">
-<h3>Bolo de Coco</h3>
-<p>Bolo úmido com coco ralado.</p>
+<img src="salgado.jpg">
+<h3>Salgados</h3>
+<p>Opções deliciosas para acompanhar.</p>
+<p class="preco">Consultar</p>
 </div>
 
 </div>
-
-</section>
-
-<section class="section">
-<h2>Avaliações</h2>
-<p>⭐ ⭐ ⭐ ⭐ ⭐</p>
-<p>5.0 estrelas no Google</p>
-<p>"Melhor bolo de Belém!"</p>
-</section>
-
-<section class="section">
-<h2>Informações da Loja</h2>
-
-<p><b>Endereço:</b><br>
-Tv. Souza Franco, 921 - Agulha<br>
-Belém - PA
-</p>
-
-<p><b>WhatsApp:</b><br>
-(91) 98944-0356
-</p>
-
-<p><b>Horário:</b><br>
-Segunda a sexta: 09:00 – 20:00<br>
-Sábado: 08:00 – 12:00
-</p>
-
-</section>
 
 <footer>
-<p>© 2026 Bolos da Tia Selma</p>
+
+<p>📍 Tv. Souza Franco, 921 - Agulha, Belém - PA</p>
+
+<p>📞 WhatsApp: (91) 98944-0356</p>
+
+<p>© Bolos da Tia Selma</p>
+
 </footer>
 
-<a class="whatsapp" href="https://wa.me/5591989440356">
+<a class="whatsapp" href="https://wa.me/5591989440356?text=Olá! Quero encomendar um bolo">
 WhatsApp
 </a>
 
