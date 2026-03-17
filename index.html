@@ -21,14 +21,18 @@
             line-height: 1.6;
         }
 
-        /* LOGO DE FORA A FORA NO TOPO */
-        .banner-topo {
+        /* AJUSTE DO LOGO PARA APARECER INTEIRO */
+        .header-logo {
             width: 100%;
-            background-image: url('logo.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 250px; /* Ajuste a altura conforme desejar */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background-color: white;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .header-logo img {
+            max-width: 90%;
+            height: auto;
+            max-height: 300px;
         }
 
         nav {
@@ -58,7 +62,6 @@
             margin-bottom: 40px;
         }
 
-        /* GRID DE PRODUTOS */
         .grid-produtos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -70,43 +73,37 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: 0.3s;
             display: flex;
             flex-direction: column;
         }
-        .card:hover { transform: translateY(-5px); }
-        .card img { width: 100%; height: 250px; object-fit: cover; }
+        .card img { width: 100%; height: 280px; object-fit: cover; }
         .card-info { padding: 20px; text-align: center; flex-grow: 1; }
-        .card-info h3 { color: var(--marrom); margin: 0 0 10px 0; font-size: 1.4rem; }
-        
+        .card-info h3 { color: var(--marrom); margin: 0 0 10px 0; }
         .preco { font-size: 1.5rem; color: var(--laranja); font-weight: bold; margin: 10px 0; }
 
-        .btn-whats {
-            display: block;
+        /* BOTÃO WHATSAPP FLUTUANTE PARA INTERAÇÃO */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
             background-color: var(--whatsapp);
             color: white;
-            padding: 12px;
+            padding: 15px 25px;
+            border-radius: 50px;
             text-decoration: none;
-            border-radius: 8px;
             font-weight: bold;
-            margin-top: 10px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        /* SEÇÃO BLOG */
-        .blog-section {
-            background-color: var(--bege-claro);
-            padding: 60px 5%;
-            border-radius: 20px;
-            margin: 60px 0;
-        }
-        .badge {
-            background: var(--marrom);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            display: inline-block;
-            margin-bottom: 10px;
+        .mapa-container {
+            margin-top: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         footer {
@@ -116,21 +113,18 @@
             padding: 40px 5%;
             margin-top: 60px;
         }
-
-        @media (max-width: 768px) {
-            .banner-topo { height: 150px; }
-            .section-title { font-size: 1.8rem; }
-        }
     </style>
 </head>
 <body>
 
-    <div class="banner-topo"></div>
+    <div class="header-logo">
+        <img src="logo.jpg" alt="Bolos da Tia Selma">
+    </div>
 
     <nav>
         <a href="#cardapio">Cardápio</a>
-        <a href="#blog">Cantinho da Tia Selma</a>
-        <a href="#contato">Localização</a>
+        <a href="#blog">Dicas da Tia</a>
+        <a href="#localizacao">Onde Estamos</a>
     </nav>
 
     <div class="container">
@@ -142,9 +136,8 @@
                 <img src="bolo de cenoura com chocolate.png" alt="Bolo de Cenoura">
                 <div class="card-info">
                     <h3>Cenoura com Chocolate</h3>
-                    <p>Massa fofinha com cobertura irresistível de brigadeiro.</p>
+                    <p>Massa fofinha com brigadeiro artesanal.</p>
                     <div class="preco">R$ 80,00</div>
-                    <a href="https://wa.me/5591989440356?text=Quero+encomendar+o+Bolo+de+Cenoura" class="btn-whats">Pedir no WhatsApp</a>
                 </div>
             </div>
 
@@ -152,9 +145,8 @@
                 <img src="bolo pudim.jpg" alt="Bolo Pudim">
                 <div class="card-info">
                     <h3>Bolo Pudim Cremoso</h3>
-                    <p>A combinação perfeita de dois clássicos em uma só fatia.</p>
+                    <p>O clássico que todo mundo ama.</p>
                     <div class="preco">R$ 80,00</div>
-                    <a href="https://wa.me/5591989440356?text=Quero+encomendar+o+Bolo+Pudim" class="btn-whats">Pedir no WhatsApp</a>
                 </div>
             </div>
 
@@ -162,9 +154,8 @@
                 <img src="bolo de milho.jpg" alt="Bolo de Milho">
                 <div class="card-info">
                     <h3>Bolo de Milho Cremoso</h3>
-                    <p>O autêntico sabor da roça, feito com milho selecionado.</p>
+                    <p>Sabor autêntico com milho selecionado.</p>
                     <div class="preco">R$ 80,00</div>
-                    <a href="https://wa.me/5591989440356?text=Quero+encomendar+o+Bolo+de+Milho" class="btn-whats">Pedir no WhatsApp</a>
                 </div>
             </div>
 
@@ -172,48 +163,29 @@
                 <img src="bolo salgado.jpg" alt="Bolo Salgado">
                 <div class="card-info">
                     <h3>Bolo Salgado Especial</h3>
-                    <p>Massa temperada e recheio generoso para seu lanche.</p>
+                    <p>Perfeito para o seu lanche da tarde.</p>
                     <div class="preco">R$ 80,00</div>
-                    <a href="https://wa.me/5591989440356?text=Quero+encomendar+o+Bolo+Salgado" class="btn-whats">Pedir no WhatsApp</a>
                 </div>
             </div>
         </div>
 
-        <section id="blog" class="blog-section">
-            <h2 class="section-title">Cantinho da Tia Selma</h2>
-            <div class="grid-produtos">
-                <div class="card">
-                    <div class="card-info" style="text-align: left;">
-                        <span class="badge">Dica da Tia</span>
-                        <h3>Como manter seu bolo fofinho?</h3>
-                        <p>Em Belém, o segredo é evitar o vento direto. Guarde sempre em pote fechado para manter a umidade natural da massa!</p>
-                        <hr style="border: 0; border-top: 1px solid #ddd; margin: 15px 0;">
-                        <small><em>Dica: Se colocar na geladeira, retire 15 min antes de servir.</em></small>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-info" style="text-align: left;">
-                        <span class="badge">História</span>
-                        <h3>Tradição em Icoaraci</h3>
-                        <p>Nossas receitas atravessam gerações, trazendo o verdadeiro sabor caseiro para a Ponta Grossa.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div id="contato" style="text-align: center; margin-top: 50px;">
-            <h2 class="section-title">Onde Estamos</h2>
+        <h2 id="localizacao" class="section-title" style="margin-top: 60px;">Onde Estamos</h2>
+        <div style="text-align: center;">
             <p>📍 Bairro Ponta Grossa, Icoaraci - Belém / PA</p>
-            <p>🛵 Entregas em Icoaraci (Taxa R$ 10,00)</p>
+            <div class="mapa-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1m3!1d15954.123!2d-48.48!3d-1.30!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a433!2sIcoaraci%2C%20Bel%C3%A9m%20-%20PA!5e0!3m2!1spt-BR!2sbr!4v1700000000000" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </div>
-
     </div>
+
+    <a href="https://wa.me/5591989440356?text=Olá+Tia+Selma,+tenho+uma+dúvida!" class="whatsapp-float" target="_blank">
+        💬 Dúvidas? Fale comigo!
+    </a>
 
     <footer>
         <p><strong>Bolos da Tia Selma</strong></p>
-        <p>📞 (91) 98944-0356 | @BolosdaTiaSelmaIcoaraci</p>
-        <p style="font-size: 0.8rem; opacity: 0.7;">© 2026 Todos os direitos reservados.</p>
+        <p>📞 (91) 98944-0356</p>
+        <p>Sabor caseiro que conquista Icoaraci!</p>
     </footer>
 
 </body>
