@@ -11,15 +11,15 @@
             --creme: #FFFDF5;
             --whatsapp: #25D366;
             --rosa-seco: #D4A373;
+            --bege-claro: #f5ebe0;
         }
 
         body {
-            font-family: 'Georgia', serif; /* Fonte mais clássica */
+            font-family: 'Georgia', serif;
             margin: 0;
             background-color: var(--creme);
             color: #333;
             line-height: 1.8;
-            /* FUNDO AMBIENTE: Imagem texturizada e acolhedora */
             background-image: url('cardapio.jpg');
             background-blend-mode: overlay;
             background-size: cover;
@@ -27,25 +27,38 @@
             background-position: center;
         }
 
+        /* MENU DE NAVEGAÇÃO */
+        nav {
+            background-color: rgba(255, 253, 245, 0.95);
+            padding: 10px 0;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--marrom);
+            margin: 0 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        nav a:hover { color: var(--laranja); }
+
         header {
             background-color: rgba(255, 253, 245, 0.9);
             padding: 30px 5%;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        /* LOGOMARCA MAIOR */
-        .logo-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         .logo-container img {
-            width: 150px; /* Logo maior */
+            width: 150px;
+            clip-path: circle(50% at 50% 50%);
+            height: 100px;
+            object-fit: contain;
             margin-bottom: 10px;
         }
 
@@ -57,43 +70,21 @@
         }
 
         .hero {
-            padding: 100px 10%;
+            padding: 60px 10%;
             text-align: center;
-            background: linear-gradient(rgba(255, 253, 245, 0.9), rgba(255, 253, 245, 0.9));
+            background: linear-gradient(rgba(255, 253, 245, 0.8), rgba(255, 253, 245, 0.8));
         }
 
-        .hero h1 { color: var(--marrom); font-size: 3.5rem; margin-bottom: 10px; font-style: italic; }
-        .hero p { font-size: 1.2rem; color: #555; }
+        .hero h1 { color: var(--marrom); font-size: 3rem; margin-bottom: 10px; font-style: italic; }
 
-        .container { padding: 80px 5%; }
+        .container { padding: 40px 5%; max-width: 1200px; margin: auto; }
 
-        /* NOVA SEÇÃO: NOSSA TRADIÇÃO */
-        .tradicao {
+        /* ESTILO DOS CARDS (USADO NO CARDÁPIO E BLOG) */
+        .grid-geral {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            background: white;
-            padding: 60px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-bottom: 80px;
-        }
-
-        .tradicao img {
-            width: 100%;
-            border-radius: 15px;
-            object-fit: cover;
-        }
-
-        .tradicao-text h2 { color: var(--marrom); font-size: 2.5rem; margin-top: 0; }
-        .tradicao-text p { font-size: 1.1rem; color: #666; }
-
-        /* GALERIA DE PRODUTOS GOURMET */
-        .grid-cardapio {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
         }
 
         .card {
@@ -102,94 +93,87 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transition: 0.4s;
+            display: flex;
+            flex-direction: column;
         }
-
         .card:hover { transform: translateY(-10px); }
+        .card img { width: 100%; height: 250px; object-fit: cover; }
+        .card-info { padding: 25px; text-align: center; flex-grow: 1; }
+        .card-info h3 { color: var(--marrom); margin: 0 0 10px 0; font-size: 1.5rem; }
 
-        .card img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
+        /* SEÇÃO BLOG: CANTINHO DA TIA SELMA */
+        .blog-section {
+            background: var(--bege-claro);
+            padding: 60px 5%;
+            border-radius: 30px;
+            margin: 60px 0;
+        }
+        .section-title {
+            text-align: center;
+            color: var(--marrom);
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+        .badge-blog {
+            background: var(--laranja);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 10px;
         }
 
-        .card-info { padding: 30px; text-align: center; }
-        .card-info h3 { color: var(--marrom); margin: 0 0 10px 0; font-size: 1.8rem; }
-        .card-info p { color: #888; font-size: 1rem; margin-bottom: 20px; }
-
-        .preco {
-            font-size: 1.8rem;
-            color: var(--rosa-seco);
-            font-weight: bold;
-            margin: 15px 0;
-            font-family: 'Segoe UI', sans-serif;
+        /* DEPOIMENTOS */
+        .depoimentos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .depoimento-item {
+            background: rgba(255,255,255,0.7);
+            padding: 20px;
+            border-radius: 15px;
+            font-style: italic;
+            border-left: 5px solid var(--laranja);
         }
 
         .btn-whats {
             display: block;
             background-color: var(--whatsapp);
             color: white;
-            padding: 15px;
+            padding: 12px;
             text-decoration: none;
             border-radius: 40px;
             font-weight: bold;
-            font-size: 1.1rem;
             transition: 0.3s;
+            margin-top: auto;
         }
 
-        .btn-whats:hover { background-color: #1ea952; }
+        .preco { font-size: 1.6rem; color: var(--rosa-seco); font-weight: bold; margin: 10px 0; }
 
-        /* MAPA DE LOCALIZAÇÃO */
-        .mapa-secao {
-            text-align: center;
-            margin-top: 80px;
-            padding: 40px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
+        footer { background-color: #3e2723; color: white; padding: 60px 10%; margin-top: 80px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
 
-        .mapa-secao h2 { color: var(--marrom); margin-bottom: 30px; }
-        .mapa-container { height: 300px; border-radius: 15px; overflow: hidden; }
-
-        /* RODAPÉ MAIOR */
-        footer {
-            background-color: #3e2723; /* Marrom escuro */
-            color: rgba(255, 255, 255, 0.8);
-            padding: 80px 10%;
-            margin-top: 80px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 50px;
-        }
-
-        .footer-col h3 { color: white; margin-top: 0; font-size: 1.4rem; }
-        .footer-col p { margin: 10px 0; }
-        .social-icons a { color: white; margin-right: 15px; text-decoration: none; font-size: 1.3rem; }
-
-        .copyright {
-            grid-column: 1 / -1;
-            text-align: center;
-            border-top: 1px rgba(255,255,255,0.1) solid;
-            margin-top: 40px;
-            padding-top: 20px;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 900px) {
-            .tradicao { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.5rem; }
-            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            nav a { margin: 0 5px; font-size: 0.7rem; }
         }
     </style>
 </head>
 <body>
 
+    <nav>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#tradicao">Nossa História</a>
+        <a href="#blog">Cantinho da Tia Selma</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
     <header>
         <div class="logo-container">
-            <img src="cardapio.jpg" style="clip-path: circle(50% at 50% 50%); height: 100px; width: auto; object-fit: contain;" alt="Logo Bolos da Tia Selma">
+            <img src="cardapio.jpg" alt="Logo Bolos da Tia Selma">
             <h1 class="logo-text">Bolos da Tia Selma</h1>
         </div>
     </header>
@@ -201,19 +185,10 @@
 
     <div class="container">
         
-        <div class="tradicao">
-            <img src="puder e o bopo.png" alt="Tia Selma na Cozinha">
-            <div class="tradicao-text">
-                <h2>Nossa Tradição</h2>
-                <p>Aqui na Tia Selma, cada bolo é mais que uma receita; é um pedaço da nossa história em Icoaraci. Usamos apenas ingredientes selecionados para garantir aquele sabor fofinho e cremoso que remete às melhores lembranças da infância.</p>
-                <p>Nossas receitas são tradicionais e feitas com todo o cuidado, exatamente como eram feitas antigamente. É essa dedicação que transforma cada fatia em uma verdadeira experiência de afeto.</p>
-            </div>
-        </div>
-
-        <div class="grid-cardapio">
-            
+        <h2 id="cardapio" class="section-title">Nossas Delícias</h2>
+        <div class="grid-geral">
             <div class="card">
-                <img src="bolo pudim.jpg" alt="Bolo Pudim Premium">
+                <img src="bolo pudim.jpg" alt="Bolo Pudim">
                 <div class="card-info">
                     <h3>Bolo Pudim Premium</h3>
                     <p>A combinação perfeita e cremosa de dois clássicos.</p>
@@ -221,81 +196,75 @@
                     <a href="https://wa.me/5591989440356?text=Olá!+Gostaria+de+encomendar+o+Bolo+Pudim+Premium" class="btn-whats">Pedir no WhatsApp</a>
                 </div>
             </div>
-
-            <div class="card">
-                <img src="chocolat com cnoura.png" alt="Bolo de Cenoura com Chocolate">
-                <div class="card-info">
-                    <h3>Cenoura com Chocolate</h3>
-                    <p>Massa fofinha com cobertura irresistível de brigadeiro.</p>
-                    <div class="preco">R$ 80,00</div>
-                    <a href="https://wa.me/5591989440356?text=Olá!+Gostaria+de+encomendar+o+Bolo+de+Cenoura+com+Chocolate" class="btn-whats">Pedir no WhatsApp</a>
-                </div>
             </div>
 
-            <div class="card">
-                <img src="milho.jpg" alt="Bolo de Milho Regional">
-                <div class="card-info">
-                    <h3>Bolo de Milho Regional</h3>
-                    <p>O autêntico sabor da roça, cremoso e inconfundível.</p>
-                    <div class="preco">R$ 80,00</div>
-                    <a href="https://wa.me/5591989440356?text=Olá!+Gostaria+de+encomendar+o+Bolo+de+Milho+Regional" class="btn-whats">Pedir no WhatsApp</a>
+        <section id="blog" class="blog-section">
+            <h2 class="section-title">Cantinho da Tia Selma</h2>
+            <p style="text-align: center; margin-top: -30px; margin-bottom: 40px;">Dicas, Receitas e Histórias de nossa cozinha em Icoaraci</p>
+            
+            <div class="grid-geral">
+                <div class="card">
+                    <img src="cardapio.jpg" alt="Dica de conservação">
+                    <div class="card-info">
+                        <span class="badge-blog">Dica da Tia</span>
+                        <h3>Como manter seu bolo fofinho?</h3>
+                        <p>O segredo para o bolo não ressecar em nossa região úmida de Belém...</p>
+                        <a href="#" style="color: var(--laranja); font-weight: bold;">Continuar lendo →</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="milho.jpg" alt="Receita regional">
+                    <div class="card-info">
+                        <span class="badge-blog">Receita</span>
+                        <h3>Calda de Café Regional</h3>
+                        <p>Uma receita simples que combina perfeitamente com nosso bolo de milho...</p>
+                        <a href="#" style="color: var(--laranja); font-weight: bold;">Continuar lendo →</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="puder e o bopo.png" alt="Depoimentos">
+                    <div class="card-info">
+                        <span class="badge-blog">Comunidade</span>
+                        <h3>O que dizem nossos clientes</h3>
+                        <div class="depoimentos">
+                            <div class="depoimento-item">"O melhor bolo de Icoaraci! Lembra o lanche na casa da minha avó." - Maria S.</div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="card">
-                <img src="salgado.jpg" alt="Bolo Salgado Especial">
-                <div class="card-info">
-                    <h3>Bolo Salgado Especial</h3>
-                    <p>Recheio generoso e massa temperada para um lanche perfeito.</p>
-                    <div class="preco">R$ 80,00</div>
-                    <a href="https://wa.me/5591989440356?text=Olá!+Gostaria+de+encomendar+o+Bolo+Salgado+Especial" class="btn-whats">Pedir no WhatsApp</a>
-                </div>
+        <div id="contato" class="mapa-secao" style="background: white; padding: 40px; border-radius: 20px; text-align: center;">
+            <h2>Onde estamos</h2>
+            <p>📍 Bairro Ponta Grossa, Icoaraci - Belém / PA</p>
+            <div style="height: 300px; border-radius: 15px; overflow: hidden; background: #eee;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15953.95764379413!2d-48.4735!3d-1.30!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMTgnMDAuMCJTIDQ4wrAyOCcyNC42Ilc!5e0!3m2!1spt-BR!2sbr!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
-
         </div>
-
-        <div class="mapa-secao">
-            <h2>Nossa Localização em Icoaraci</h2>
-            <p>Bairro Ponta Grossa</p>
-            <div class="mapa-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15956.124619472648!2d-48.4891129!3d-1.2980598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a488e028f80459%3A0xc3f5b796446e105e!2sPonta%20Grossa%2C%20Belém%20-%20PA!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy">
-                </iframe>
-            </div>
-        </div>
-
     </div>
 
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
                 <h3>Bolos da Tia Selma</h3>
-                <p>📍 Bairro Ponta Grossa</p>
-                <p>Icoaraci - Belém / PA</p>
+                <p>📍 Icoaraci - Belém / PA</p>
                 <p>Sabor caseiro que conquista!</p>
             </div>
             <div class="footer-col">
                 <h3>Atendimento</h3>
-                <p>Entregas em Icoaraci</p>
-                <p>Taxa de entrega: R$ 10,00</p>
+                <p>📞 (91) 98944-0356</p>
                 <p>Somente por encomenda</p>
             </div>
             <div class="footer-col">
-                <h3>Fale Conosco</h3>
-                <p>📞 (91) 98944-0356</p>
+                <h3>Siga-nos</h3>
                 <p>📸 @BolosdaTiaSelmaIcoaraci</p>
-                <div class="social-icons">
-                    <a href="#" target="_blank">📲 WhatsApp</a>
-                </div>
+                <a href="https://wa.me/5591989440356" style="color: var(--whatsapp); text-decoration: none; font-weight: bold;">📲 Chamar no WhatsApp</a>
             </div>
-            <div class="copyright">
-                <p>© 2026 Bolos da Tia Selma - Todos os direitos reservados</p>
-            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+            © 2026 Bolos da Tia Selma - Icoaraci
         </div>
     </footer>
 
